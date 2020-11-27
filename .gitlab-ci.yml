@@ -1,0 +1,24 @@
+image: nimlang/nim:latest
+
+stages:
+  - test
+  - deploy
+
+run-unit-tests:
+  stage: test
+  script:
+    - nimble install
+    - nimble test
+
+pages:
+  stage: deploy
+  script:
+  - mkdir -p public
+  - nimble docs
+  - cp -r pages/* public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
