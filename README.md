@@ -1,0 +1,1 @@
+This library offers a collection of algorithms allowing to overcome floating point rounding errors.
